@@ -7,6 +7,16 @@
       <h1><a href="">A Link from here to here</a></h1>
     </div>
 
+
+    {% for post in posts %}
+      
+      <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaks }}</p>
+      </div>
+    {% endfor %}
+
     <div>
       <h2><a href="">Here</a></h2>
       <p>You are free and that is why you are lost.</p>
