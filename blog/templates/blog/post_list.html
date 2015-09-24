@@ -1,96 +1,13 @@
-<html>
-  <head>
-      <title>Gold</title>
-  </head>
-  <body>
-    <div>
-      <h1><a href="">A Link from here to here</a></h1>
-    </div>
+{% extends "blog/base.html" %}
 
-
-    {% for post in posts %}
-      <div>
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaks }}</p>
-      </div>
-    {% endfor %}
-
-    <div>
-      <h2><a href="">Here</a></h2>
-      <p>You are free and that is why you are lost.</p>
-      <p>FRANZ KAFKA</p>
-    </div>
-
-    <div>
-      <h2><a href="">Here #2</a></h2>
-      <p>A first sign of the beginning of understanding is the wish to die.</p>
-      <p>FRANZ KAFKA</p>
-    </div>
-
-    <div>
-      <h2><a href="">Here #3</a></h2>
-      <p>All that remains is a fate whose outcome alone is fatal. Outside of that single fatality of death, everything, joy or happiness, is liberty. A world remains of which man is the sole master. What bound him was the illusion of another world.</p>
-      <p>ALBERT CAMUS</p>
-
-      <div>
-        <h2><a href="">Here #3</a></h2>
-        <p>About once or twice every month I engage in public debates
-           with those whose pressing need it is to woo and to win
-           the approval of supernatural beings. Very often,
-           when I give my view that there is no supernatural dimension,
-           and certainly not one that is only or especially available to
-           the faithful, and that the natural world is wonderful enough—and
-           even miraculous enough if you insist—I attract pitying looks and
-           anxious questions. </p>
-          <p>How, in that case, I am asked, do I find meaning and purpose
-            in life? How does a mere and gross materialist, with no
-            expectation of a life to come, decide what, if anything,
-            is worth caring about?</p>
-            <p>Depending on my mood, I sometimes but not always refrain
-              from pointing out what a breathtakingly insulting
-              and patronizing question this is. (It is on a par with the
-              equally subtle inquiry: Since you don't believe in our god,
-              what stops you from stealing and lying and raping and killing
-              to your heart's content?)</p>
-            <p>Just as the answer to the latter question is:
-              self-respect and the desire for the respect of
-              others—while in the meantime it is precisely those who
-              think they have divine permission who are truly capable
-               of any atrocity—so the answer to the first question falls
-               into two parts.</p>
-               <p>A life that partakes even a little of
-                friendship, love, irony, humor, parenthood, literature,
-                and music, and the chance to take part in battles for the
-                liberation of others cannot be called 'meaningless' except
-                if the person living it is also an existentialist and elects
-                to call it so.</p>
-                <p>It could be that all existence is a pointless
-                joke, but it is not in fact possible to live one's everyday
-                life as if this were so. Whereas if one sought to define
-                meaninglessness and futility, the idea that a human life
-                should be expended in the guilty, fearful, self-obsessed
-                propitiation of supernatural nonentities… but there, there.
-                Enough.</p>
-        <p>CHRISTOPHER HITCHENS (Hitch-22)</p>
-      </div>
-
-      <div>
-        <h2><a href="">Here #4</a></h2>
-        <p>Convictions are more dangerous foes of truth than lies.</p>
-        <p>FRIEDRICH NIETZSCHE</p>
-      </div>
-
-      <div>
-        <h2><a href="">Here #5</a></h2>
-        <p>He was free, free in every way, free to behave like a fool or a machine, free to accept, free to refuse, free to equivocate; to marry, to give up the game, to drag this death weight about with him for years to come. He could do what he liked, no one had the right to advise him, there would be for him no Good or Evil unless he thought them into being.</p>
-        <p>JEAN-PAUL SARTRE</p>
-      </div>
-
-      <div>
-        <h2><a href="">Here #5</a></h2>
-        <p>The world is, of course, nothing but our conception of it.</p>
-        <p>ANTON CHEKHOV</p>
-      </div>
-  </body>
-</html>
+{% block content %}
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaks }}</p>
+                </div>
+            {% endfor %}
+{% endblock content %}
